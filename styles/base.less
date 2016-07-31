@@ -1,0 +1,178 @@
+@import "syntax-variables";
+
+atom-text-editor, :host {
+  background-color: @syntax-background-color;
+  color: @syntax-text-color;
+
+  .wrap-guide {
+    background-color: @syntax-wrap-guide-color;
+  }
+
+  .indent-guide {
+    color: @syntax-indent-guide-color;
+  }
+
+  .invisible-character {
+    color: @syntax-invisible-character-color;
+  }
+
+  .gutter {
+    background-color: @syntax-gutter-background-color;
+    color: @syntax-gutter-text-color;
+
+    .line-number {
+      &.cursor-line {
+        background-color: @syntax-gutter-background-color-selected;
+        color: @syntax-gutter-text-color-selected;
+      }
+
+      &.cursor-line-no-selection {
+        color: @syntax-gutter-text-color-selected;
+      }
+    }
+  }
+
+  .gutter .line-number.folded,
+  .gutter .line-number:after,
+  .fold-marker:after {
+    color: @light-gray;
+  }
+
+  .invisible {
+    color: @syntax-text-color;
+  }
+
+  .cursor {
+    color: @syntax-cursor-color;
+  }
+
+  .selection .region {
+    background-color: @syntax-selection-color;
+  }
+}
+
+atom-text-editor .search-results .marker .region,
+:host .search-results .marker .region {
+  background-color: transparent;
+  border: 1px solid @syntax-result-marker-color;
+}
+
+atom-text-editor .search-results .marker.current-result .region,
+:host .search-results .marker.current-result .region {
+  border: 1px solid @syntax-result-marker-color-selected;
+}
+
+.comment {
+  color: @standard;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.keyword {
+  color: @keywords;
+  font-weight: bold;
+
+  &.regexp {
+    color: @literals;
+  }
+
+  &.operator {
+    &.assignment {
+      color: @assignments;
+    }
+    &.comparison, &.arithmetic, &.relational{
+      color: @invocations;
+    }
+  }
+}
+
+.storage, .storage.type, .storage.type.function  {
+  color: @ubuntu-orange-70;
+  font-weight: bold;
+
+  & + .variable.readwrite {
+    color: @assignments;
+  }
+}
+
+.meta{
+  &.function {
+    .variable.readwrite {
+      color: @assignments;
+    }
+    .function.name {
+      color: @assignments;
+    }
+  }
+  &.delimiter {
+    color: @keywords;
+  }
+  &.brace.curly.js{
+    color: @keywords;
+    font-weight: bold;
+  }
+
+  &.brace.round.js{
+    color: @invocations;
+  }
+}
+
+.function.js {
+  & ~ .brace.round{
+    color: @invocations;
+  }
+}
+
+.constant {
+  color: @standard;
+
+  &.regexp, &.language.boolean, &.numeric{
+    color: @literals;
+  }
+
+  &.character.escape {
+    color: @keywords;
+  }
+}
+
+.variable {
+  color: @standard;
+
+  /*&.readwrite,*/ &.parameter.function {
+    color: @assignments;
+  }
+}
+
+.invalid.illegal {
+  background-color: @red;
+  color: @syntax-background-color;
+}
+
+.string, .string.regexp {
+  color: @literals;
+
+  &.other.link {
+    text-decoration: underline;
+  }
+}
+
+.punctuation {
+  &.regexp {
+    color: @literals;
+  }
+  color: @keywords;
+  font-weight: bold;
+}
+
+.function {
+  color: @invocations;
+}
+
+.none {
+  color: @standard;
+}
+
+atom-text-editor[mini] .scroll-view,
+:host([mini]) .scroll-view {
+  padding-left: 1px;
+}
