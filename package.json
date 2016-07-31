@@ -1,7 +1,7 @@
 {
   "name": "molecule-ubuntu",
   "theme": "syntax",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Non destructive syntax for MoleculeIDE on Ubuntu",
   "keywords": [
     "syntax",
